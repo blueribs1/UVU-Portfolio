@@ -429,6 +429,71 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &294319469
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -7402372487815980823, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: damage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7402372487815980823, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: MonsterHealth
+      value: 
+      objectReference: {fileID: 1788945167}
+    - target: {fileID: 1600140076724069922, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_Name
+      value: Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 22.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.24292628
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02547029
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
 --- !u!1 &408521628
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +507,7 @@ GameObject:
   - component: {fileID: 408521630}
   m_Layer: 0
   m_Name: Enemy Octopus Sprite
-  m_TagString: Untagged
+  m_TagString: HitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1372,7 +1437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c04cb69239c756e40bfbfdcb964a5980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1600140076724069922, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+  projectile: {fileID: 1734722824}
   projectileTransform: {fileID: 424616676}
   canFire: 1
   timeBetweenFiring: 0.3
@@ -1624,6 +1689,11 @@ PolygonCollider2D:
       - {x: -32, y: -16}
       - {x: 16, y: -16}
   m_UseDelaunayMesh: 0
+--- !u!1 &1734722824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1600140076724069922, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+  m_PrefabInstance: {fileID: 294319469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1788945160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,7 +1729,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 3
-  m_LinearDamping: 0
+  m_LinearDamping: 2
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1840,7 +1910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77b1ab9b65bfe04ca038776287f2af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 10
   health: 0
 --- !u!1 &1868983848
 GameObject:
@@ -30766,3 +30836,4 @@ SceneRoots:
   - {fileID: 120832413}
   - {fileID: 5706744954956776194}
   - {fileID: 1788945163}
+  - {fileID: 294319469}
