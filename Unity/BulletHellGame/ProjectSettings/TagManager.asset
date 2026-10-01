@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - HitBox
   layers:
   - Default
   - TransparentFX
@@ -50,7 +51,10 @@ TagManager:
   - name: 3. Collision
     uniqueID: 1296610933
     locked: 0
-  - name: 3.5 Projectile
+  - name: 3.1 Enemy
+    uniqueID: 3699532375
+    locked: 0
+  - name: 2.1 Projectile
     uniqueID: 854709703
     locked: 0
   - name: 4. Player

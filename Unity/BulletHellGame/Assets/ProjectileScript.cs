@@ -7,6 +7,9 @@ public class ProjectileScript : MonoBehaviour
     private Rigidbody2D rb;
     public float force;
     [SerializeField] private float lifeSpan = 4;
+    
+    public int damage;
+    public MonsterHealth MonsterHealth;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,12 +21,22 @@ public class ProjectileScript : MonoBehaviour
         rb.linearVelocity = new Vector2(direction.x, direction.y).normalized * force;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
+        if (gameObject.name == "Projectile(Clone)")
+        {
         Destroy(gameObject, lifeSpan);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.tag == "HitBox")
+        {
+            MonsterHealth.TakeDamage(damage);
+            if (gameObject.name == "Projectile(Clone)")
+            {
+                Destroy(gameObject);
+            }
+        }
     }
+    
 }
