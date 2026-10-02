@@ -105,7 +105,7 @@ MonoBehaviour:
   force: 5
   lifeSpan: 4
   damage: 2
-  monsterHealth: {fileID: 0}
+  MonsterHealth: {fileID: 0}
 --- !u!50 &-2735131137818944839
 Rigidbody2D:
   serializedVersion: 5

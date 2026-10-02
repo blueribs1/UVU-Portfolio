@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MonsterDamage : MonoBehaviour
 {
+    /*
     public int damage;
     public PlayerHealth playerHealth;
     
@@ -12,4 +13,5 @@ public class MonsterDamage : MonoBehaviour
             playerHealth.TakeDamage(damage);
         }
     }
+    */
 }

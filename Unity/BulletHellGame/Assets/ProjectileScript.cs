@@ -8,7 +8,7 @@ public class ProjectileScript : MonoBehaviour
     public float force;
     [SerializeField] private float lifeSpan = 4;
     
-    public int damage;
+    [SerializeField] public int damage = 1000;
     public MonsterHealth MonsterHealth;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -27,16 +27,28 @@ public class ProjectileScript : MonoBehaviour
         }
     }
     
-    private void OnCollisionEnter2D(Collision2D collision)
+    //private void OnCollisionEnter2D(Collision2D collider)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collision.gameObject.tag == "HitBox")
+        if(collider.GetComponent<Health>() != null)
         {
+            Health health = collider.GetComponent<Health>();
+            health.Damage(damage);
+        }
+        /*
+        if(Collider.gameObject.tag == "HitBox")
+        {
+            Health health = GetComponent<Collider>().GetComponent<Health>();
+            health.Damage(damage);
+            /* 
             MonsterHealth.TakeDamage(damage);
             if (gameObject.name == "Projectile(Clone)")
             {
                 Destroy(gameObject);
             }
+            
         }
+        */
     }
     
 }
