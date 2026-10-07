@@ -104,8 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 5
   lifeSpan: 4
+  hitLifeSpan: 0
   damage: 2
-  MonsterHealth: {fileID: 0}
 --- !u!50 &-2735131137818944839
 Rigidbody2D:
   serializedVersion: 5

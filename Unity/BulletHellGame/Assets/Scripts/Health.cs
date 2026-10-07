@@ -5,7 +5,7 @@ using System;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int health = 100;
-    private int MAX_HEALTH = 100;
+    [SerializeField] private int MAX_HEALTH = 100;
 
     [SerializeField] private int xp = 10;
     [SerializeField] private MonsterData data;
@@ -14,9 +14,15 @@ public class Health : MonoBehaviour
     public static Action OnPlayerDeath;
     public static Action OnEnemyDeath;
 
+    public HealthBar healthBar;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        if (this.CompareTag("Player"))
+        {
+            healthBar.SetMaxHealth(this.MAX_HEALTH);
+        }
     }
     
     // Update is called once per frame
@@ -36,6 +42,7 @@ public class Health : MonoBehaviour
     {
         this.MAX_HEALTH = maxhealth;
         this.health = health;
+        
     }
     
     private IEnumerator VisualIndicator(Color color)
@@ -54,6 +61,12 @@ public class Health : MonoBehaviour
         
         this.health -= amount;
         StartCoroutine(VisualIndicator(Color.red));
+        
+        if (this.CompareTag("Player"))
+        {
+            healthBar.SetHealth(this.health);
+        }
+        
         if(health <= 0)
         {
             Die();
