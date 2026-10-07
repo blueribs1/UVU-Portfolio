@@ -202,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   speed: 1.5
+  xp: 10
   data: {fileID: 11400000, guid: 72c2a22e7367e2c49b40c21bd02db46f, type: 2}
 --- !u!114 &1104349130057026835
 MonoBehaviour:
@@ -216,6 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  xp: 10
+  data: {fileID: 11400000, guid: 72c2a22e7367e2c49b40c21bd02db46f, type: 2}
 --- !u!1 &4638692152286492012
 GameObject:
   m_ObjectHideFlags: 0

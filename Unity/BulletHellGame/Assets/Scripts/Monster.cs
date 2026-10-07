@@ -1,10 +1,12 @@
 using UnityEngine;
 
+
 public class Monster : MonoBehaviour
 {
     
     [SerializeField] private int damage = 5;
     [SerializeField] private float speed = 1.5f;
+    [SerializeField] private int xp = 10;
     [SerializeField] private MonsterData data;
     private GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,11 +27,15 @@ public class Monster : MonoBehaviour
         GetComponent<Health>().SetHealth(data.hp, data.hp);
         damage = data.damage;
         speed = data.speed;
+        xp = data.xp;
     }
 
     private void Swarm()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        if(player != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -39,6 +45,8 @@ public class Monster : MonoBehaviour
             {
                 collider.GetComponent<Health>().Damage(damage);
                 this.GetComponent<Health>().Damage(10000);
+                
+                
             }
             
         }

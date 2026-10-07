@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - HitBox
+  - Spawner
   layers:
   - Default
   - TransparentFX

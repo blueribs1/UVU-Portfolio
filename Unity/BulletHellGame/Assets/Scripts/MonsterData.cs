@@ -6,4 +6,5 @@ public class MonsterData : ScriptableObject
     public int hp;
     public int damage;
     public float speed;
+    public int xp;
 }
