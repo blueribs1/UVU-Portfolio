@@ -18,11 +18,20 @@ public class MonsterSpawner : MonoBehaviour
 
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
     {
-        Vector3 spawnPos = transform.position;
-        spawnPos.Set(transform.position.x+Random.Range(-10f, 10f),transform.position.y+Random.Range(-10f, 10f), transform.position.z);
+         if (interval>.1)
+        {
+            interval*=.99f;
+        }
+        Vector3 spawnPos = transform.position + new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0);
+        //spawnPos.Set(transform.position.x+Random.Range(-9f, 9f),transform.position.y+Random.Range(-9f, 9f), transform.position.z);
         yield return new WaitForSeconds(interval);
         GameObject newEnemy = Instantiate(enemy, spawnPos, Quaternion.identity);
         StartCoroutine(spawnEnemy(interval, enemy));
+       
+    }
+    void Update()
+    {
+        
     }
 }//new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0)
 //new Vector3(Random.Range((Random.Range(-10f, -5f), (Random.Range(5f, -10f)), Random.Range((Random.Range(-10f, -5f), (Random.Range(5f, -10f)), 0)

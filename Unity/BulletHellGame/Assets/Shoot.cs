@@ -8,11 +8,20 @@ public class Shoot : MonoBehaviour
     public Transform projectileTransform;
     public bool canFire;
     private float timer;
-    public float timeBetweenFiring;
+    [SerializeField] public float timeBetweenFiring;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+    }
+
+    public void SetFireRate()
+    {
+        
+        if (timeBetweenFiring>=.001)
+        {
+            timeBetweenFiring*=.75f;
+        }
     }
 
     // Update is called once per frame

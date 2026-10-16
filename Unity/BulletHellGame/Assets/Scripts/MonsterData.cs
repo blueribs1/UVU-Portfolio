@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Data", menuName = "Scriptable Objects/MonsterData")]
 public class MonsterData : ScriptableObject
 {
-    public int hp;
-    public int damage;
+    public float hp;
+    public float damage;
     public float speed;
-    public int xp;
+    public float xp;
 }

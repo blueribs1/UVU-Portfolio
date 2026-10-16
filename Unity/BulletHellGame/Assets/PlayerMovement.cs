@@ -69,4 +69,9 @@ public class PlayerMovement : MonoBehaviour
         //animator.SetFloat("InputX", moveInput.x);
         //animator.SetFloat("InputY", moveInput.y);
     }
+    public void SetSpeed()
+    {
+        Debug.Log("SetSpeed works");
+        if (moveSpeed<=1000){moveSpeed*=1.2f;}
+    }
 }

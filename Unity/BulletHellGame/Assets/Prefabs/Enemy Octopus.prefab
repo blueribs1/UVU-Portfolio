@@ -217,8 +217,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  MAX_HEALTH: 100
   xp: 10
   data: {fileID: 11400000, guid: ed731e3b3986c2a49a3622981b82d068, type: 2}
+  healthBar: {fileID: 0}
 --- !u!1 &8458583391737236672
 GameObject:
   m_ObjectHideFlags: 0

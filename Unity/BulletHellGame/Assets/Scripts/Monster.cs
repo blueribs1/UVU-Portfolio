@@ -4,9 +4,9 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
     
-    [SerializeField] private int damage = 5;
+    [SerializeField] private float damage = 5;
     [SerializeField] private float speed = 1.5f;
-    [SerializeField] private int xp = 10;
+    [SerializeField] private float xp = 10;
     [SerializeField] private MonsterData data;
     private GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

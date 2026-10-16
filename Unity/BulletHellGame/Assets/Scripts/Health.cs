@@ -4,10 +4,10 @@ using System;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int health = 100;
-    [SerializeField] private int MAX_HEALTH = 100;
+    [SerializeField] private float health = 100;
+    [SerializeField] private float MAX_HEALTH = 100;
 
-    [SerializeField] private int xp = 10;
+    [SerializeField] private float xp = 10;
     [SerializeField] private MonsterData data;
     private GameObject player;
     
@@ -38,11 +38,10 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void SetHealth(int maxhealth, int health)
+    public void SetHealth(float maxhealth, float health)
     {
         this.MAX_HEALTH = maxhealth;
         this.health = health;
-        
     }
     
     private IEnumerator VisualIndicator(Color color)
@@ -52,7 +51,7 @@ public class Health : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.white;
     }
 
-    public void Damage(int amount)
+    public void Damage(float amount)
     {
         if(amount < 0)
         {
@@ -72,7 +71,7 @@ public class Health : MonoBehaviour
             Die();
         }
     }
-    public void Heal(int amount)
+    public void Heal(float amount)
     {
         if(amount < 0)
         {
@@ -101,17 +100,30 @@ public class Health : MonoBehaviour
         }
         else
         {
+            StartCoroutine(VisualIndicator(Color.red));
+            
             OnEnemyDeath?.Invoke();
             xp = data.xp;
             XP exp = player.GetComponent<XP>();
             exp.Xp(xp);
+            Destroy(gameObject,.1f);
         }
         if (gameObject.name != "Player")
         {
-            Destroy(gameObject);
+            ;
         }
 
         Debug.Log("I am Dead!");
         //Destroy(gameObject);
     }
+    public void SetMaxHealth()
+    {
+        Debug.Log("SetHealth works");
+        MAX_HEALTH*=1.2f;
+        health*=1.2f;
+        SetHealth(MAX_HEALTH,health);
+        healthBar.SetMaxHealth(this.MAX_HEALTH);
+        healthBar.SetHealth(this.health);
+    }
+    
 } //player = GameObject.FindGameObjectWithTag("Player");

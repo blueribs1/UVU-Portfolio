@@ -8,11 +8,13 @@ public class ProjectileScript : MonoBehaviour
     public float force;
     [SerializeField] private float lifeSpan = 4;
     [SerializeField] private float hitLifeSpan = 0;
-    
-    [SerializeField] public int damage = 1000;
+    [SerializeField] private ProjectileData data;
+
+    [SerializeField] public float damage = 1000;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        SetProjectileValues();
         if (gameObject.name == "Projectile(Clone)")
         {
             mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -28,6 +30,24 @@ public class ProjectileScript : MonoBehaviour
         }
     }
     
+    private void SetProjectileValues()
+    {
+        
+        //damage = data.damage;
+        //lifeSpan = data.lifeSpan;
+        //hitLifeSpan = data.hitLifeSpan;
+    }
+
+    public void SetDamage()
+    {
+        damage*=1.5f;
+    }
+    public void SetForce()
+    {
+        Debug.Log("SetForce works");
+        force*=1.25f;
+    }
+
     //private void OnCollisionEnter2D(Collision2D collider)
     private void OnTriggerEnter2D(Collider2D collider)
     {
