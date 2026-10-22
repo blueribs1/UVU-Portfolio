@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private Animator animator;
 
-    //private Vector2 work;
     private Camera mainCam;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,11 +47,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("InputY", -1);
             animator.SetFloat("InputX", 0);
         }
-
-        //work = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        //animator.SetFloat("InputX", moveInput.x);
-        //animator.SetFloat("InputY", moveInput.y);
-
+        
         
     }
     public void Move(InputAction.CallbackContext context)
@@ -71,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public void SetSpeed()
     {
-        Debug.Log("SetSpeed works");
-        if (moveSpeed<=1000){moveSpeed*=1.2f;}
+        if (moveSpeed<=11){moveSpeed+=1f;}
     }
 }

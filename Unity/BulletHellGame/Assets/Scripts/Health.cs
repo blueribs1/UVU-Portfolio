@@ -47,7 +47,7 @@ public class Health : MonoBehaviour
     private IEnumerator VisualIndicator(Color color)
     {
         GetComponent<SpriteRenderer>().color = color;
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.2f);
         GetComponent<SpriteRenderer>().color = Color.white;
     }
 
@@ -108,12 +108,7 @@ public class Health : MonoBehaviour
             exp.Xp(xp);
             Destroy(gameObject,.1f);
         }
-        if (gameObject.name != "Player")
-        {
-            ;
-        }
-
-        Debug.Log("I am Dead!");
+        //Debug.Log("I am Dead!");
         //Destroy(gameObject);
     }
     public void SetMaxHealth()
@@ -121,6 +116,7 @@ public class Health : MonoBehaviour
         Debug.Log("SetHealth works");
         MAX_HEALTH*=1.2f;
         health*=1.2f;
+        Heal(MAX_HEALTH*.3f);
         SetHealth(MAX_HEALTH,health);
         healthBar.SetMaxHealth(this.MAX_HEALTH);
         healthBar.SetHealth(this.health);

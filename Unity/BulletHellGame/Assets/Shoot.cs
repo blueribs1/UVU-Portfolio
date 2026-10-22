@@ -9,6 +9,7 @@ public class Shoot : MonoBehaviour
     public bool canFire;
     private float timer;
     [SerializeField] public float timeBetweenFiring;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,9 +19,9 @@ public class Shoot : MonoBehaviour
     public void SetFireRate()
     {
         
-        if (timeBetweenFiring>=.001)
+        if (timeBetweenFiring>=.005)
         {
-            timeBetweenFiring*=.75f;
+            timeBetweenFiring*=.85f;
         }
     }
 

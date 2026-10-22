@@ -7,7 +7,7 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField] private GameObject bigSwarmerPrefab;
     [SerializeField] private float swarmerInterval = 3.5f;
     [SerializeField] private float bigSwarmerInterval = 10f;
-    private GameObject player;
+    //private GameObject player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

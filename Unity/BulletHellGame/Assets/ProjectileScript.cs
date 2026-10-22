@@ -9,12 +9,14 @@ public class ProjectileScript : MonoBehaviour
     [SerializeField] private float lifeSpan = 4;
     [SerializeField] private float hitLifeSpan = 0;
     [SerializeField] private ProjectileData data;
-
     [SerializeField] public float damage = 1000;
+
+    [SerializeField] private GameObject projectile;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SetProjectileValues();
+        //SetProjectileValues();
+
         if (gameObject.name == "Projectile(Clone)")
         {
             mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -29,10 +31,13 @@ public class ProjectileScript : MonoBehaviour
             Destroy(gameObject, lifeSpan);
         }
     }
-    
+    public void SetProjectileSize()
+    {
+            projectile.transform.localScale += new Vector3(.2f, .2f, .2f);
+            force*=.95f;
+    }
     private void SetProjectileValues()
     {
-        
         //damage = data.damage;
         //lifeSpan = data.lifeSpan;
         //hitLifeSpan = data.hitLifeSpan;
@@ -40,15 +45,26 @@ public class ProjectileScript : MonoBehaviour
 
     public void SetDamage()
     {
-        damage*=1.5f;
+        damage*=1.3f;
     }
     public void SetForce()
     {
-        Debug.Log("SetForce works");
-        force*=1.25f;
+        if (force<=100){force*=1.2f;}
+    }
+    public void SetHitLifeSpan()
+    {
+        Debug.Log("SetHitLifeSpan works");
+        if (hitLifeSpan<.3f){hitLifeSpan=.3f;}
+        else if (hitLifeSpan<1){hitLifeSpan+=.25f;}
+        else if (hitLifeSpan<lifeSpan){hitLifeSpan+=.5f;}
+    }
+    public void SetLifeSpan()
+    {
+        Debug.Log("SetLifeSpan works");
+        if (lifeSpan<2.5f){lifeSpan+=.25f;}
+        else if (lifeSpan<6){lifeSpan+=.5f;}
     }
 
-    //private void OnCollisionEnter2D(Collision2D collider)
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.GetComponent<Health>() != null)
@@ -57,20 +73,6 @@ public class ProjectileScript : MonoBehaviour
             health.Damage(damage);
             Destroy(gameObject, hitLifeSpan);
         }
-        /*
-        if(Collider.gameObject.tag == "HitBox")
-        {
-            Health health = GetComponent<Collider>().GetComponent<Health>();
-            health.Damage(damage);
-            /* 
-            MonsterHealth.TakeDamage(damage);
-            if (gameObject.name == "Projectile(Clone)")
-            {
-                Destroy(gameObject);
-            }
-            
-        }
-        */
     }
     
 }

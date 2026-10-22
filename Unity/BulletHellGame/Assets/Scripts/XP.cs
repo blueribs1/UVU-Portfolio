@@ -4,7 +4,7 @@ using System;
 
 public class XP : MonoBehaviour
 {
-    [SerializeField] private MonsterData data;
+    //[SerializeField] private MonsterData data;
     [SerializeField] private float xp = 5;
     private float maxXp = 500f;
     private int xpLevel = 0;
@@ -12,7 +12,6 @@ public class XP : MonoBehaviour
 
     public static Action OnLevelUp;
 
-    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +20,13 @@ public class XP : MonoBehaviour
         //xpBar.SetMaxXp(this.maxXp);
         //xpBar.SetXp(this.xpLevel, this.xp);
         
+    }
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            OnLevelUp?.Invoke();
+        }
     }
     public void Xp(float amount)
     {
@@ -39,15 +45,18 @@ public class XP : MonoBehaviour
         {
             maxXp*=1.5f;
         }
+        else if (xp<300000)
+        {
+            maxXp+=6000;
+        }
         else
         {
-            maxXp+=3000;
+            maxXp+=20000;
         }
-        xpBar.SetMaxXp(this.maxXp);
+        xpBar.SetMaxXp(this.maxXp, this.xp);
         xpBar.SetXp(this.xpLevel, this.xp);
         
         
-
         OnLevelUp?.Invoke();
     }
 }

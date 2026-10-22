@@ -869,7 +869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b272c6f2e3df94d8a388296fa6e3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
   xp: 5
   xpBar: {fileID: 0}
 --- !u!1 &280098722
@@ -1018,13 +1017,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 48ea7618ccb6ba844a16c51326aba1f1, type: 2}
     - target: {fileID: -7402372487815980823, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: force
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -7402372487815980823, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
       propertyPath: damage
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -7402372487815980823, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
       propertyPath: lifeSpan
-      value: 3
+      value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: -7402372487815980823, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1734722824}
     - target: {fileID: -7402372487815980823, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
       propertyPath: hitLifeSpan
       value: 0.1
@@ -1059,11 +1066,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.88
+      value: 50.6
       objectReference: {fileID: 0}
     - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.97
+      value: 51.5
       objectReference: {fileID: 0}
     - target: {fileID: 2721176899392191859, guid: bbec603796ff6dd4ca0c291d4a7ba915, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1547,7 +1554,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1646,7 +1653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bfc3e35dc60a70439511141989df4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 7
 --- !u!114 &550082610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1960,7 +1967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b272c6f2e3df94d8a388296fa6e3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
   xp: 0
   xpBar: {fileID: 1217550647}
 --- !u!1 &590997926
@@ -2030,7 +2036,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Button
@@ -2268,7 +2274,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Button
@@ -2841,7 +2847,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 34
-    OrthographicSize: 5
+    OrthographicSize: 6
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3163,6 +3169,7 @@ RectTransform:
   - {fileID: 697749277}
   - {fileID: 1722537608}
   - {fileID: 1814788977}
+  - {fileID: 1866864109}
   m_Father: {fileID: 417847768}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3287,7 +3294,6 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
-  fill: {fileID: 697749278}
 --- !u!1 &1353196648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3889,6 +3895,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814788976}
+  m_CullTransparentMesh: 1
+--- !u!1 &1866864108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1866864109}
+  - component: {fileID: 1866864111}
+  - component: {fileID: 1866864110}
+  m_Layer: 5
+  m_Name: XpOrb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1866864109
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866864108}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.24523528, y: 1.5096105, z: 1.5087827}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1217550644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -48.7, y: -0.099998}
+  m_SizeDelta: {x: 62.5, y: 62.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1866864110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866864108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -168421969075237668, guid: 816d321dd4cae8847b4dd9475d09073f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1866864111
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866864108}
   m_CullTransparentMesh: 1
 --- !u!1 &1868983848
 GameObject:
@@ -26410,7 +26491,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Button

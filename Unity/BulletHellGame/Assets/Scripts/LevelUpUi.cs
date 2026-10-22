@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class LevelUpUi : MonoBehaviour
 {
-    private int upgradeType;
     int[] upgrades = new int[3];
     string[] output = new string[3];
     [SerializeField] private Text levelUp1;
@@ -27,21 +26,18 @@ public class LevelUpUi : MonoBehaviour
     public void LevelUp1()
     {
         Upgrade(upgrades[0]);
-        //Debug.Log("test2");
         Time.timeScale = 1;
         this.gameObject.SetActive(false);
     }
     public void LevelUp2()
     {
         Upgrade(upgrades[1]);
-        //Debug.Log("test2");
         Time.timeScale = 1;
         this.gameObject.SetActive(false);
     }
     public void LevelUp3()
     {
         Upgrade(upgrades[2]);
-        Debug.Log(upgrades[2]);
         Time.timeScale = 1;
         this.gameObject.SetActive(false);
     }
@@ -51,22 +47,17 @@ public class LevelUpUi : MonoBehaviour
         this.gameObject.SetActive(true);
         Time.timeScale = 0;
         
-
-        
         for (int i = 0; i<3; i++)
         {
-            upgrades[i] = Random.Range(1,6);
+            upgrades[i] = Random.Range(1,9);
         }
         
-
-
         for (int i = 0; i<3; i++) 
         {
             switch(upgrades[i])
             {
                 case 1:
                     output[i] = "Damage";
-                    Debug.Log("damage1");
                     break;
                 case 2:
                     output[i] = "Projectile speed";
@@ -76,13 +67,21 @@ public class LevelUpUi : MonoBehaviour
                     break;
                 case 4:
                     output[i] = "Health";
-                    Debug.Log("health1");
                     break;
                 case 5:
                     output[i] = "Fire Rate";
                     break;
+                case 6:
+                    output[i] = "Piercing";
+                    break;
+                case 7:
+                    output[i] = "Projectile Lifespan";
+                    break;
+                case 8:
+                    output[i] = "Projectile Increase size lower speed";
+                    break;
                 default:
-                    output[i] = "something messed up";
+                    output[i] = "Something messed up";
                     break;
             }
         }
@@ -90,16 +89,6 @@ public class LevelUpUi : MonoBehaviour
         levelUp1.text = output[0];
         levelUp2.text = output[1];
         levelUp3.text = output[2];
-        
-
-        
-        //Debug.Log(upgrades);
-        //upgradeType = Random.Range(1,5);
-        //upgradeType = Random.Range(1,5);
-        //upgradeType = Random.Range(1,5);
-        //upgradeType = Random.Range(1,5);
-        //Debug.Log(upgradeType);
-        
     }
 
     private void OnDestroy()
@@ -113,7 +102,6 @@ public class LevelUpUi : MonoBehaviour
         {
             case 1: //damage up
                 projectileScript.SetDamage();
-                Debug.Log("damage2");
                 break;
             case 2: //proj spd up
                 projectileScript.SetForce();
@@ -123,11 +111,19 @@ public class LevelUpUi : MonoBehaviour
                 break; 
             case 4: //health up
                 health.SetMaxHealth();
-                Debug.Log("health2");
                 break;
             case 5: //firerate up
                 shoot.SetFireRate();
                     break;
+            case 6: // Piercing
+                projectileScript.SetHitLifeSpan();
+                break;
+            case 7: // Lifespan
+                projectileScript.SetLifeSpan();
+                break;
+            case 8: // Size and lower speed
+                projectileScript.SetProjectileSize();
+                break;
             default:
                 break;
         }
