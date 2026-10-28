@@ -105,7 +105,9 @@ MonoBehaviour:
   force: 5
   lifeSpan: 4
   hitLifeSpan: 0
+  data: {fileID: 0}
   damage: 2
+  projectile: {fileID: 0}
 --- !u!50 &-2735131137818944839
 Rigidbody2D:
   serializedVersion: 5
