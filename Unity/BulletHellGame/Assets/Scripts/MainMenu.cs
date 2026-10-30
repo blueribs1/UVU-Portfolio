@@ -11,6 +11,8 @@ public class MainMenu : MonoBehaviour
 
     public void StartGameButton()
     {
+        PauseController.SetPause(false);    
+        MusicManager.PauseBackgroundMusic();
         SceneManager.LoadScene("MainScene");
     }
 

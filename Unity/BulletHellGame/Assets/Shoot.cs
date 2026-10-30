@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour
     public void SetFireRate()
     {
         
-        if (timeBetweenFiring>=.005)
+        if (timeBetweenFiring>=.05)
         {
             timeBetweenFiring*=.85f;
         }
@@ -50,6 +50,7 @@ public class Shoot : MonoBehaviour
         {
             canFire = false;
             Instantiate(projectile, projectileTransform.position, Quaternion.identity);
+            SoundEffectManager.Play("Shoot");
         }
     }
 }

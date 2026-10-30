@@ -20,6 +20,7 @@ public class GameOver : MonoBehaviour
     {
         Health.OnPlayerDeath -= ActivateGameObject;
         Health.OnEnemyDeath -= CountScore;
+        
     }
 
     public void ReturnToMenu()
@@ -36,5 +37,6 @@ public class GameOver : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         scoreValueText.text = score.ToString();
+        MusicManager.PauseBackgroundMusic();
     }
 }

@@ -15,8 +15,19 @@ public class PauseMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Tab))
         {
+            if(!menuCanvas.activeSelf && PauseController.IsGamePaused)
+            {return;}
             //Time.timeScale = 0;    
             menuCanvas.SetActive(!menuCanvas.activeSelf);
+            PauseController.SetPause(menuCanvas.activeSelf);
         }
+    }
+    public void MenuFix()
+    {
+        if(!menuCanvas.activeSelf && PauseController.IsGamePaused)
+            {return;}
+            //Time.timeScale = 0;    
+            menuCanvas.SetActive(!menuCanvas.activeSelf);
+            PauseController.SetPause(menuCanvas.activeSelf);
     }
 }

@@ -6,6 +6,7 @@ public class LevelUpUi : MonoBehaviour
 {
     int[] upgrades = new int[3];
     string[] output = new string[3];
+    int[] output2 = new int[3];
     [SerializeField] private Text levelUp1;
     [SerializeField] private Text levelUp2;
     [SerializeField] private Text levelUp3;
@@ -26,26 +27,27 @@ public class LevelUpUi : MonoBehaviour
     public void LevelUp1()
     {
         Upgrade(upgrades[0]);
-        Time.timeScale = 1;
+        PauseController.SetPause(false);
         this.gameObject.SetActive(false);
     }
     public void LevelUp2()
     {
         Upgrade(upgrades[1]);
-        Time.timeScale = 1;
+        PauseController.SetPause(false);
         this.gameObject.SetActive(false);
     }
     public void LevelUp3()
     {
         Upgrade(upgrades[2]);
-        Time.timeScale = 1;
+        PauseController.SetPause(false);
         this.gameObject.SetActive(false);
     }
 
     private void ActivateGameObject()
     {
         this.gameObject.SetActive(true);
-        Time.timeScale = 0;
+        PauseController.SetPause(true);
+        //MusicManager.PauseBackgroundMusic();
         
         for (int i = 0; i<3; i++)
         {
@@ -58,37 +60,49 @@ public class LevelUpUi : MonoBehaviour
             {
                 case 1:
                     output[i] = "Damage";
+                    output2[i] = 90;
                     break;
                 case 2:
-                    output[i] = "Projectile speed";
+                    output[i] = "Projectile  speed";
+                    output2[i] = 90;
                     break;
                 case 3:
-                    output[i] = "Movement speed";
+                    output[i] = "Movement  speed";
+                    output2[i] = 90;
                     break;
                 case 4:
                     output[i] = "Health";
+                    output2[i] = 90;
                     break;
                 case 5:
-                    output[i] = "Fire Rate";
+                    output[i] = "Fire  Rate";
+                    output2[i] = 90;
                     break;
                 case 6:
                     output[i] = "Piercing";
+                    output2[i] = 90;
                     break;
                 case 7:
-                    output[i] = "Projectile Lifespan";
+                    output[i] = "Projectile  Lifespan";
+                    output2[i] = 90;
                     break;
                 case 8:
-                    output[i] = "Projectile Increase size lower speed";
+                    output[i] = "Projectile  Increase  size,  lower  speed";
+                    output2[i] = 62;
                     break;
                 default:
-                    output[i] = "Something messed up";
+                    output[i] = "Something  messed  up";
+                    output2[i] = 90;
                     break;
             }
         }
 
         levelUp1.text = output[0];
+        //levelUp1.fontSize = output2[0];
         levelUp2.text = output[1];
+        //levelUp2.fontSize = output2[1];
         levelUp3.text = output[2];
+        //levelUp3.fontSize = output2[2];
     }
 
     private void OnDestroy()
