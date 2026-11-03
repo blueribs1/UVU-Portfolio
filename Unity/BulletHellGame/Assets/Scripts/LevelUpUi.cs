@@ -48,6 +48,7 @@ public class LevelUpUi : MonoBehaviour
         this.gameObject.SetActive(true);
         PauseController.SetPause(true);
         //MusicManager.PauseBackgroundMusic();
+        SoundEffectManager.Play("LevelUp");
         
         for (int i = 0; i<3; i++)
         {

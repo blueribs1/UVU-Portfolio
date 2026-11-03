@@ -59,12 +59,14 @@ public class Health : MonoBehaviour
         }
         
         this.health -= amount;
-        StartCoroutine(VisualIndicator(Color.red));
-        
         if (this.CompareTag("Player"))
         {
+            SoundEffectManager.Play("TakeDamage");
             healthBar.SetHealth(this.health);
         }
+        StartCoroutine(VisualIndicator(Color.red));
+        
+        
         
         if(health <= 0)
         {
@@ -96,6 +98,7 @@ public class Health : MonoBehaviour
         if (this.CompareTag("Player"))
         {
             Time.timeScale = 0;
+            SoundEffectManager.Play("Die");
             OnPlayerDeath?.Invoke();
         }
         else

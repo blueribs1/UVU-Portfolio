@@ -56,7 +56,7 @@ public class ProjectileScript : MonoBehaviour
         Debug.Log("SetHitLifeSpan works");
         if (hitLifeSpan<.3f){hitLifeSpan=.3f;}
         else if (hitLifeSpan<1){hitLifeSpan+=.25f;}
-        else if (hitLifeSpan<lifeSpan){hitLifeSpan+=.5f;}
+        else if (hitLifeSpan<6){hitLifeSpan+=.5f;}
     }
     public void SetLifeSpan()
     {

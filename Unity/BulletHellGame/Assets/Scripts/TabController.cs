@@ -21,6 +21,7 @@ public class TabController : MonoBehaviour
         }
         pages[tabNo].SetActive(true);
         tabImages[tabNo].color = Color.white;
+        SoundEffectManager.Play("MenuClick");
     }
 
     // Update is called once per frame
