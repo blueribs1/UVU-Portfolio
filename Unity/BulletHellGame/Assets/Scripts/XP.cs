@@ -9,6 +9,7 @@ public class XP : MonoBehaviour
     private float maxXp = 500f;
     private int xpLevel = 0;
     [SerializeField] public XpBar xpBar;
+    [SerializeField] public Health health;
 
     public static Action OnLevelUp;
 
@@ -34,6 +35,7 @@ public class XP : MonoBehaviour
         //xpBar.SetXp(this.xp);
         if(xp>=maxXp)
         {
+            //Debug.Log(GetComponent<Health>().xpHealth);
             LevelUp();
         }
         xpBar.SetXp(this.xpLevel, this.xp);

@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     [SerializeField] private float xp = 10;
     [SerializeField] private MonsterData data;
     private GameObject player;
+
+    //public float xpHealth;
     
     public static Action OnPlayerDeath;
     public static Action OnEnemyDeath;
@@ -42,6 +44,7 @@ public class Health : MonoBehaviour
     {
         this.MAX_HEALTH = maxhealth;
         this.health = health;
+        //health = xpHealth;
     }
     
     private IEnumerator VisualIndicator(Color color)
@@ -106,9 +109,12 @@ public class Health : MonoBehaviour
             StartCoroutine(VisualIndicator(Color.red));
             
             OnEnemyDeath?.Invoke();
+            if(player.GetComponent<Health>().health>0)
+            {
             xp = data.xp;
             XP exp = player.GetComponent<XP>();
             exp.Xp(xp);
+            }
             Destroy(gameObject,.1f);
         }
         //Debug.Log("I am Dead!");
