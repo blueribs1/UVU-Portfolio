@@ -9,6 +9,8 @@ public class PauseController : MonoBehaviour
     public static void SetPause(bool pause)
     {
         IsGamePaused = pause;
+        Cursor.visible = pause;
+        Debug.Log(pause);
         Time.timeScale = Convert.ToInt32(!pause);
     }
 }

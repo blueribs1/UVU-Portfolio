@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
             {return;}
             //Time.timeScale = 0;    
             menuCanvas.SetActive(!menuCanvas.activeSelf);
-            PauseController.SetPause(menuCanvas.activeSelf);
+            PauseController.SetPause(menuCanvas.activeSelf); 
         }
     }
     public void MenuFix()

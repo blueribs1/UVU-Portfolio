@@ -25,6 +25,8 @@ public class GameOver : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        MusicManager.PauseBackgroundMusic();
+        Cursor.visible = true;
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -38,5 +40,6 @@ public class GameOver : MonoBehaviour
         this.gameObject.SetActive(true);
         scoreValueText.text = score.ToString();
         MusicManager.PauseBackgroundMusic();
+        Cursor.visible = true;
     }
 }
