@@ -65,8 +65,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\tProjectile speed increases the effectiveness of your range and piercing!\n(more
-    hints to come)"
+  m_text: "\tThe faster your bullets are the more range they have!\n\tThe piercing
+    upgrade lets your bullets keep going after they hit an enemy.\n\tThe health upgrade
+    increases your max health and heals you a bit!\n\tIt's a bit dangerous if you
+    upgrade your movement speed too much, be careful."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5a6c924117df3248b663597ad546e79, type: 2}
   m_sharedMaterial: {fileID: -6873019051786264656, guid: b5a6c924117df3248b663597ad546e79, type: 2}
@@ -203,8 +205,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Music: Created by Foxupai; @FoxuMusic on  YouTube  \nArt: pixel-boy.itch.io/ninja-adventure-asset-pack
-    \nSound Effects: GameAudioGDC Royalty Free Sound Effects Archive\nEverything
-    else: Blueribs   <-Thats me!'
+    \nSound Effects: GameAudioGDC Royalty Free Sound Effects Archive\nThe coding,
+    the art for the xp orb and reticle, and everything else was created by me (blueribs),
+    no AI code or assets were put into this project.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b5a6c924117df3248b663597ad546e79, type: 2}
   m_sharedMaterial: {fileID: -6873019051786264656, guid: b5a6c924117df3248b663597ad546e79, type: 2}
